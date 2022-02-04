@@ -10,8 +10,8 @@ info:
 paths:
   '/tokenvalidator/{token}':
     get:
-      summary: Vérifie la validité d'un token prosanteconnect'
-      description: 'Vérifie quun token est valide'
+      summary: Vérifie la validité d un token prosanteconnect (GET URL)'
+      description: 'Vérifie qu''un token est valide'
       tags:
         - tokenvalidator
       responses:
@@ -33,3 +33,27 @@ paths:
           in: path
           required: true
           description: token à valider
+  '/istokenvalid':        
+    post:
+      summary: Vérifie la validité d un token prosanteconnect (POST)'
+      description: 'Vérifie qu un token est valide'
+      tags:
+        - tokenvalidator
+      responses:
+        '200':
+          description: Requête en succès.
+          content:
+            application/json:
+              schema:
+                type: string            
+        '503':
+          description: Prosante Connect inaccessible.
+        '500':
+          description: Erreur interne du serveur.
+      operationId: is-token-valid
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: token
+          required: true

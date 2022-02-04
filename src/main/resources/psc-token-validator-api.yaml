@@ -1,0 +1,35 @@
+#(c) Copyright 1998-2021, ANS. All rights reserved.
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: psc-token-validator 
+  description: This API calls PSC to check token validity
+  contact:
+    email: esignsante@esante.gouv.fr
+
+paths:
+  '/tokenvalidator/{token}':
+    get:
+      summary: Vérifie la validité d'un token prosanteconnect'
+      description: 'Vérifie quun token est valide'
+      tags:
+        - tokenvalidator
+      responses:
+        '200':
+          description: Requête en succès.
+          content:
+            application/json:
+              schema:
+                type: string            
+        '503':
+          description: Prosante Connect inaccessible.
+        '500':
+          description: Erreur interne du serveur.
+      operationId: token-validator
+      parameters:
+        - schema:
+            type: string
+          name: token
+          in: path
+          required: true
+          description: token à valider

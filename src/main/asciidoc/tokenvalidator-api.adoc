@@ -1,0 +1,13 @@
+= WS token-validator  esignsante-psc 
+
+
+== Introduction
+Ce site est la documentation de l'API esignsante-psc extraite des tests.
+
+Pour tester l'API, vous pouvez utiliser swagger: +
+http://localhost:8080:/tokenvalidator/..??. +
+Ne pas oublier d'activer le profil 'swagger' au démarrage de Spring: 
+java -jar *-Dspring.profiles.active=swagger* xxxx.jar .../application.properties ...
+
+
+== Interrogation de l'API
